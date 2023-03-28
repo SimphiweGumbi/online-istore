@@ -1,0 +1,94 @@
+<!--declaring doucument type-->
+<!DOCTYPE html>
+<!--opening html tag-->
+<html lang="en">
+  <!--opening head tag-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--title opening and closing tag-->
+    <title>Clothing Store</title>
+    <!--link to the style style sheet-->
+    <link rel="stylesheet" href="style.css" />
+    <!--link to icons using bootstrap-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+    <!--closing head tag-->
+  </head>
+  <!--opening body tag-->
+  <body>
+    <!--div tag for nav -->
+    <div class="navbar">
+      <!--links to diffrent pages-->
+      <a href="home.html">
+        <h2>ISTORE</h2>
+      </a>
+      <a href="./products/ipad.html">
+        <h2>IPAD</h2>
+      </a>
+      <a href="./products/iphone.html">
+        <h2>IPHONE</h2>
+      </a>
+      <a href="./products/iwatch.html">
+        <h2>IWATCH</h2>
+      </a>
+      <a href="./products/macbook.html">
+        <h2>MACBOOK</h2>
+      </a>
+      <!--link tag tag to cart page-->
+      <a href="cart.html">
+        <div class="cart">
+          <!--shopping cart icon-->
+          <i class="bi bi-cart2"></i>
+          <!--div tag for number of items-->
+          <div id="cartAmount" class="cartAmount">0</div>
+        </div>
+      </a>
+    </div>
+    <!--div tag for the the shop-->
+    <div class="shop" id="shop"></div>
+    <h3 id="H1">FAQ</h3>
+    <div>
+      <!--unorded list-->
+      <ul>
+        <!--list tag-->
+        <li class="question" id="question">
+          <!--div for menu-->
+          <div class="expand-bar"></div>
+          time it take to delivery
+          <!--list closing tag-->
+        </li>
+        <!--list opeming and closing tag-->
+        <li class="answer">3 or less working days</li>
+        <!--list tagd for drop down -->
+        <li class="question">
+          <!--div closing and opening tag-->
+          <div class="expand-bar"></div>
+          is it cheaper to pick up item
+        </li>
+        <!--list closing and opening tag -->
+        <li class="answer">yes it is</li>
+        <!--list tag for questions-->
+        <li class="question">
+          <div class="expand-bar"></div>
+          are we better than an physical store
+        </li>
+        <li class="answer">
+          yes we can charge lower prices because we have no physical stores
+        </li>
+      </ul>
+      <!--div closing tag for meni-->
+    </div>
+
+    <!--link to javascript files-->
+    <script src="./JS/data.js"></script>
+    <script src="./JS/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./JS/jquery.js"></script>
+    <!--closing tag for body-->
+  </body>
+  <!--closing tag for html-->
+</html>

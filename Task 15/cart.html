@@ -1,0 +1,71 @@
+<!--declaring an html doucument-->
+<!DOCTYPE html>
+<!--html opening tag-->
+<html lang="en">
+  <!--head opening tag-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--title opening and closing tag-->
+    <title>Clothing Store</title>
+    <!--linj to css file-->
+    <link rel="stylesheet" href="style.css" />
+    <!--link to icons using bootstrap-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+    <!--head closing tag-->
+  </head>
+  <!--body opening tag-->
+  <body>
+    <!--div tag for nav-->
+    <div class="navbar">
+      <!--link for diffrent pages-->
+      <a href="home.html">
+        <h2>ISTORE</h2>
+      </a>
+      <a href="./products/ipad.html">
+        <h2>IPAD</h2>
+      </a>
+      <a href="./products/iphone.html">
+        <h2>IPHONE</h2>
+      </a>
+      <a href="./products/iwatch.html">
+        <h2>IWATCH</h2>
+      </a>
+      <a href="./products/macbook.html">
+        <h2>MACBOOK</h2>
+      </a>
+      <!--link to cart-->
+      <a href="cart.html">
+        <!--div tag for cart-->
+        <div class="cart">
+          <!--icon for cart-->
+          <i class="bi bi-cart2"></i>
+          <!--div tag for cart amount-->
+          <div id="cartAmount" class="cartAmount">0</div>
+        </div>
+      </a>
+    </div>
+    <!--div tag for opening and closing tag-->
+    <div id="label" class="text-center"></div>
+    <div class="shopping-cart" id="shopping-cart"></div>
+    <h2>delivery</h2>
+    <select id="options" onchange="TotalAmount()">
+      <option value="0">choose option</option>
+      <option value="100">delivery</option>
+      <option value="10">collect</option>
+    </select>
+    <form>
+      <label>discount code</label>
+      <input id="coupecode" type="text" />
+      <button onclick="applyDiscount()">submint</button>
+    </form>
+    <!--closing body tag-->
+  </body>
+  <!--link to javascripy files-->
+  <script src="./JS/data.js"></script>
+  <script src="./JS/cart.js"></script>
+</html>

@@ -1,0 +1,193 @@
+<!--declaring doucument type-->
+<!DOCTYPE html>
+<!--opening html tag-->
+<html lang="en">
+  <!--opening head tag-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--title opening and closing tag-->
+    <title>IPAD</title>
+    <!--link to the style style sheet-->
+    <link rel="stylesheet" href="../style.css" />
+    <!--link to icons using bootstrap-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+    <!--closing head tag-->
+  </head>
+  <!--opening body tag-->
+  <body>
+    <!--div tag for nav -->
+    <div class="navbar">
+      <!--links to diffrent pages-->
+      <a href="../home.html">
+        <h2>ISTORE</h2>
+      </a>
+      <a href="ipad.html">
+        <h2>IPAD</h2>
+      </a>
+      <a href="iphone.html">
+        <h2>IPHONE</h2>
+      </a>
+      <a href="iwatch.html">
+        <h2>IWATCH</h2>
+      </a>
+      <a href="macbook.html">
+        <h2>MACBOOK</h2>
+      </a>
+      <!--link tag tag to cart page-->
+      <a href="../cart.html">
+        <div class="cart">
+          <!--shopping cart icon-->
+          <i class="bi bi-cart2"></i>
+          <!--div tag for number of items-->
+          <div id="cartAmount" class="cartAmount">0</div>
+        </div>
+      </a>
+    </div>
+    <!--div tag for the the shop-->
+    <div class="shop" id="shop"></div>
+    <h3 id="H1">FAQ</h3>
+    <div>
+      <!--unorded list-->
+      <ul>
+        <!--list tag-->
+        <li class="question" id="question">
+          <!--div for menu-->
+          <div class="expand-bar"></div>
+          time it take to delivery
+          <!--list closing tag-->
+        </li>
+        <!--list opeming and closing tag-->
+        <li class="answer">3 or less working days</li>
+        <!--list tagd for drop down -->
+        <li class="question">
+          <!--div closing and opening tag-->
+          <div class="expand-bar"></div>
+          is it cheaper to pick up item
+        </li>
+        <!--list closing and opening tag -->
+        <li class="answer">yes it is</li>
+        <!--list tag for questions-->
+        <li class="question">
+          <div class="expand-bar"></div>
+          are we better than an physical store
+        </li>
+        <li class="answer">
+          yes we can charge lower prices because we have no physical stores
+        </li>
+      </ul>
+      <!--div closing tag for meni-->
+    </div>
+
+    <!--link to javascript files-->
+    <script src="../JS/data.js"></script>
+    <script>
+      //naming an vairble and getting an element by
+      let shop = document.getElementById("shop");
+      //setting an vairble to an value
+      let total = Number(localStorage.getItem("totalOfCart"));
+      //setting an vairble and storing it in local storage and and getting item
+      let basket = JSON.parse(localStorage.getItem("data")) || [];
+      //setting the variable snd displaying the store
+      let generateShop = () => {
+        return (shop.innerHTML = shopItemsData
+          .map((x) => {
+            let { id, name, price, desc, img } = x;
+            if (id == "jfhgbvnscs") {
+              let search = basket.find((x) => x.id === id) || [];
+              console.log(search);
+              //writing the html in to display and targetinf by id
+              return `
+      <div id=product-id-${id} class="item">
+          <img width="220" src=../${img} alt="">
+          <div class="details">
+            <h3>${name}</h3>
+            <p>${desc}</p>
+            <div class="price-quantity">
+              <h2>R ${price} </h2>
+              <div class="buttons">
+                <button onclick="decrement(${id})">REMOVE FROM CART</button>
+                <div id=${id} class="quantity">
+                ${search.item === undefined ? 0 : search.item}
+                </div>
+                <button onclick="increment(${id});addtoCart(${price})">ADD TO CART</button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+            }
+          })
+          //settin the join so the comma wont be displayed in html
+          .join(""));
+      };
+      //declaring an variable and inputing an a allert when user clicks on item the total appears
+      let addtoCart = (price) => {
+        total += price;
+        localStorage.setItem("totalOfCart", total);
+        alert("Total:R" + total);
+      };
+
+      generateShop();
+      //to add to cart when user clicks buttons
+      let increment = (id) => {
+        let selectedItem = id;
+        let search = basket.find((x) => x.id === selectedItem.id);
+        //creating an conditional statement
+        if (search === undefined) {
+          basket.push({
+            id: selectedItem.id,
+            item: 1,
+          });
+        } else {
+          search.item += 1;
+        }
+
+        //update cart
+        update(selectedItem.id);
+        localStorage.setItem("data", JSON.stringify(basket));
+      };
+      //remove from cart
+      let decrement = (id) => {
+        let selectedItem = id;
+        let search = basket.find((x) => x.id === selectedItem.id);
+
+        if (search === undefined) return;
+        else if (search.item === 0) return;
+        else {
+          search.item -= 1;
+        }
+        update(selectedItem.id);
+        basket = basket.filter((x) => x.item !== 0);
+
+        localStorage.setItem("data", JSON.stringify(basket));
+      };
+      //update to basket
+      let update = (id) => {
+        let search = basket.find((x) => x.id === id);
+
+        document.getElementById(id).innerHTML = search.item;
+        calculation();
+      };
+      //calculation for number in shop icon
+      let calculation = () => {
+        let cartIcon = document.getElementById("cartAmount");
+        cartIcon.innerHTML = basket
+          .map((x) => x.item)
+          .reduce((x, y) => x + y, 0);
+      };
+
+      calculation();
+    </script>
+    <!--link to js files-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../JS/jquery.js"></script>
+    <!--closing tag for body-->
+  </body>
+  <!--closing tag for html-->
+</html>

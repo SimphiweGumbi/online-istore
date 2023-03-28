@@ -1,0 +1,240 @@
+/**
+* ! Changing default styles of the browser
+**/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/*changing page font*/
+body {
+  font-family: sans-serif;
+}
+/*changing the mouse to a pointer when hover over icons*/
+i {
+  cursor: pointer;
+}
+/*chaninging the links style*/
+a {
+  text-decoration: none;
+  color: white;
+}
+
+/*changing nav bar style background and space and font*/
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #212529;
+  color: white;
+  padding: 25px 60px;
+  margin-bottom: 30px;
+}
+/*changing cart background and postion and style and border*/
+.cart {
+  position: relative;
+  background-color: #fff;
+  color: #212529;
+  font-size: 30px;
+  padding: 5px;
+  border-radius: 4px;
+}
+/*changing the style and postion of nummer in the cart*/
+.cartAmount {
+  position: absolute;
+  top: -15px;
+  right: -10px;
+  font-size: 16px;
+  background-color: red;
+  color: white;
+  padding: 3px;
+  border-radius: 3px;
+}
+/*using an css grid for the store and chaning postions*/
+.shop {
+  display: grid;
+  grid-template-columns: repeat(4, 223px);
+  gap: 30px;
+  justify-content: center;
+}
+
+@media (max-width: 1000px) {
+  .shop {
+    grid-template-columns: repeat(2, 223px);
+  }
+}
+
+@media (max-width: 500px) {
+  .shop {
+    grid-template-columns: repeat(1, 223px);
+  }
+}
+/*border around the items and rounding the corners*/
+.item {
+  border: 2px solid #212529;
+  border-radius: 4px;
+}
+/*changing the postioning of the details*/
+.details {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
+}
+/*changing the price positioning */
+.price-quantity {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+/*changing an fontsize of an button and gap and display*/
+.buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  font-size: 16px;
+}
+/*changing the icon color*/
+.bi-dash-lg {
+  color: red;
+}
+/*changing the icon color*/
+.bi-plus-lg {
+  color: green;
+}
+
+/*aligning the text and and changing the margin bottom*/
+.text-center {
+  text-align: center;
+  margin-bottom: 20px;
+}
+/*changing the buttons color amd cusor and margins*/
+.HomeBtn,
+.checkout,
+.removeAll {
+  background-color: #212529;
+  color: white;
+  border: none;
+  padding: 6px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+/*chaning the checkout button background color*/
+.checkout {
+  background-color: green;
+}
+/*changing the background color of the button*/
+.removeAll {
+  background-color: red;
+}
+/*chaning the icon background color*/
+.bi-x-lg {
+  color: red;
+  font-weight: bold;
+}
+
+/*using an css grid chaning the gap*/
+.shopping-cart {
+  display: grid;
+  grid-template-columns: repeat(1, 320px);
+  justify-content: center;
+  gap: 15px;
+}
+
+/*border items and chaning an display */
+.cart-item {
+  border: 2px solid #212529;
+  border-radius: 5px;
+  display: flex;
+}
+/*changing the width of the price and the postion*/
+.title-price-x {
+  width: 195px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* border: 2px solid red; */
+}
+/*changing the postion the price and changing */
+.title-price {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+/*changing the style of the item price and border and space*/
+.cart-item-price {
+  background-color: #212529;
+  color: white;
+  border-radius: 4px;
+  padding: 3px 6px;
+}
+/**/
+/*changing the margins and font of drop down*/
+ul {
+  margin-left: 0;
+  padding: 0;
+  font-family: "Karla", sans-serif;
+}
+/*romving the bullets of the ul list*/
+.question,
+.answer {
+  list-style-type: none;
+}
+/*creating an boader aroun the menu and postion the menu and*/
+.question {
+  border-top: 1px solid grey;
+  padding: 0.5em 1em 0.5em 3em;
+  font-weight: bold;
+  position: relative;
+}
+/*creates a boader around the list*/
+ul:last-child {
+  border-bottom: 1px solid grey;
+}
+/*changes the pointer to*/
+.question:hover {
+  cursor: pointer;
+}
+/*changes the padding of the info inside the menu*/
+.answer {
+  display: none;
+  padding: 1em 0.5em 2.5em;
+}
+/*expand changes it postion and it timer */
+.expand-bar {
+  position: absolute;
+  top: 50%;
+  left: 1em;
+  transition: all 0.5s ease;
+}
+/*changes the witdth and height and background color*/
+.expand-bar,
+.expand-bar:after {
+  width: 15px;
+  height: 2px;
+  background-color: red;
+}
+/*setting the time for the expand bar*/
+.expand-bar:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: rotate(90deg);
+  transition: all 0.5s ease;
+}
+/*stetting the border of open*/
+.open {
+  border-bottom: none;
+}
+/*setting it to roatate*/
+.open .expand-bar {
+  transform: rotate(180deg);
+}
+/*setting it to roatate*/
+.open .expand-bar:after {
+  transform: rotate(180deg);
+}
